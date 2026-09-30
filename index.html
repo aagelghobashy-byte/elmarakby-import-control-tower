@@ -342,6 +342,67 @@ body.light{--bg:#eef3f7;--panel:#ffffff;--panel2:#f5f8fb;--border:#d8e1e9;--line
 .empty-state{text-align:center;padding:34px;color:var(--t3)}.empty-state .ei{font-size:34px;margin-bottom:8px}
 .kc{border-radius:8px}.pnl,.twrap,.fi,.btn{border-radius:6px}.btn{letter-spacing:.2px}.b,.chip{border-radius:10px}
 @media(max-width:800px){.commandbar{top:57px}.hdr-meta{display:none}.ship360-head{grid-template-columns:1fr}.action-card{grid-template-columns:1fr}.main{padding:10px}.nav{position:sticky;top:57px;z-index:440}}
+
+/* ── Clarity refresh: visual-only overrides, no workflow/data changes ── */
+:root{
+  --bg:#07131f; --panel:#0d1d2d; --panel2:#14283a; --border:#2a435b; --line:#36546e;
+  --amber:#ffb84d; --amb2:#ffd166; --ambD:rgba(255,184,77,.13);
+  --cyan:#5ee7f5; --cyD:rgba(94,231,245,.12); --green:#35d39a; --gnD:rgba(53,211,154,.12);
+  --red:#ff6b6b; --rdD:rgba(255,107,107,.12); --orange:#ff9f43;
+  --t1:#f5f8fc; --t2:#b8c7d8; --t3:#8ea4b8; --t4:#6f879d;
+  --surface:#091827; --shadow:0 14px 32px rgba(0,0,0,.24);
+}
+body{font-size:13px;line-height:1.58;background:radial-gradient(circle at 50% -20%,#17334a 0,#07131f 44%,#050d16 100%);}
+.hdr{background:linear-gradient(110deg,#07131f 0%,#102a3d 55%,#07131f 100%);box-shadow:0 4px 18px rgba(0,0,0,.22)}
+.hdr-title h1{font-size:18px;letter-spacing:.2px}
+.hdr-title .sub{color:var(--t3)}
+.hdr-meta{border-color:rgba(255,255,255,.12)}
+.hm{border-color:rgba(255,255,255,.12)}
+.hm .lbl{color:var(--t3)}
+.nav{background:#0b1a29;border-bottom:1px solid var(--line);box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.nt{padding:11px 15px;color:var(--t2);font-size:12px;border-left-color:rgba(255,255,255,.08)}
+.nt:hover{color:#fff;background:rgba(94,231,245,.07)}
+.nt.active{color:#07131f;background:var(--amber);border-bottom-color:var(--amber);font-weight:800}
+.nt.active::after{background:var(--amb2);box-shadow:0 0 10px rgba(255,209,102,.7)}
+.commandbar{background:#0a1a29;border-bottom-color:var(--line);padding:10px 16px;box-shadow:0 3px 12px rgba(0,0,0,.16)}
+.cmdsearch,.si,.sf,input.fi,select.fi,textarea.fi{background:#091725;border-color:#34516a;color:var(--t1)}
+.cmdsearch::placeholder,.si::placeholder,input.fi::placeholder,textarea.fi::placeholder{color:#8097aa}
+.cmdsearch:focus,.si:focus,.sf:focus,input.fi:focus,select.fi:focus,textarea.fi:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(94,231,245,.12)}
+.main{padding:20px;max-width:1920px}
+.krow{gap:14px;margin-bottom:18px}
+.kc{padding:16px;border-top-width:3px;box-shadow:var(--shadow)}
+.kl,.fl{color:var(--t3)}
+.kv{font-size:30px}
+.pnl,.twrap{border-color:var(--border);box-shadow:var(--shadow)}
+.pnl{margin-bottom:16px}
+.ph{padding:11px 16px;background:#0b1927;border-bottom-color:var(--border)}
+.ph:hover{background:#112638}
+.pt{font-size:13px}
+.pb{padding:16px}
+.sh{margin-bottom:16px;padding-bottom:10px;border-bottom-color:var(--line)}
+.st{font-size:16px;color:var(--amb2)}
+.sc{color:var(--cyan);background:var(--cyD);border-color:rgba(94,231,245,.3)}
+thead th{background:#08131f;color:var(--t2);padding:10px 12px;border-bottom-color:var(--line)}
+tbody tr{border-bottom-color:rgba(42,67,91,.72)}
+tbody tr:hover{background:rgba(94,231,245,.06)}
+td{padding:9px 12px}
+.btn{padding:9px 17px;border-radius:7px;font-size:12px;min-height:36px}
+.btn-p{background:var(--amber);color:#07131f;box-shadow:0 4px 12px rgba(255,184,77,.18)}
+.btn-p:hover{background:var(--amb2);box-shadow:0 6px 16px rgba(255,209,102,.28)}
+.btn-s{border-color:rgba(94,231,245,.45)}
+.btn-s:hover{background:var(--cyD)}
+.b,.chip{font-size:10px;padding:3px 8px}
+.ib{padding:12px 16px;border-right-width:4px}
+.gi{padding:12px 14px;border-right-width:4px}
+.gti{font-size:12px}.gd{color:var(--t2);font-size:11px}
+.action-card{box-shadow:var(--shadow)}
+.healthring{box-shadow:0 0 0 5px rgba(53,211,154,.06)}
+@media(max-width:800px){
+  .main{padding:12px}.hdr-title{padding:8px 14px}.hdr-title h1{font-size:15px}.commandbar{padding:8px 10px}
+  .nt{padding:10px 12px}.pb{padding:12px}.krow{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.kv{font-size:25px}
+}
+@media(max-width:520px){.krow{grid-template-columns:1fr}.st{font-size:14px}.sc{font-size:9px}.btn{width:100%;justify-content:center}}
+
 </style>
 </head>
 <body>
