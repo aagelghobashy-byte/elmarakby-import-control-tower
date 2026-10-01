@@ -1,5 +1,19 @@
 # Change Log
 
+## 2026-10-02 — Clear Control Tower v2
+
+### Added
+
+- New **Operational Pulse** strip on the Dashboard with live counts for ACID attention, ETA overdue, open actions and incomplete document packs.
+- Pulse cards are actionable: ACID attention opens the existing ACID filter, Actions opens Action Center, and Document Packs opens Documents.
+- Default presentation is now the clearer light enterprise theme while preserving a saved dark preference.
+
+### Improved
+
+- Reworked visual hierarchy, surface contrast, spacing, panel headers, KPI cards, navigation, buttons, tables and responsive behavior.
+- Removed the previous overly decorative treatment in favor of calm Steel Group navy, teal, amber, green and red state semantics.
+- Preserved all existing shipment records, modules, handlers, storage and workflows.
+
 ## 2026-10-01 — Live preview and visual clarity refresh
 
 ### Updated

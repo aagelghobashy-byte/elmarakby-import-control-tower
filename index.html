@@ -420,6 +420,43 @@ body.light tbody tr:hover{background:rgba(14,116,144,.06)}
 body.light .btn-p{background:#f59e0b;color:#162536}
 body.light .btn-p:hover{background:#fbbf24}
 
+
+/* ── Clear Control Tower v2: calmer surfaces, stronger hierarchy, less visual noise ── */
+:root{
+  --bg:#f4f7fb;--panel:#ffffff;--panel2:#eef3f8;--border:#d5e0ea;--line:#c2d1df;
+  --amber:#c97808;--amb2:#e49a19;--ambD:rgba(201,120,8,.10);
+  --cyan:#087f9b;--cyD:rgba(8,127,155,.10);--green:#087f5b;--gnD:rgba(8,127,91,.10);
+  --red:#c43d4b;--rdD:rgba(196,61,75,.10);--orange:#b85b12;
+  --t1:#172b3d;--t2:#50677b;--t3:#71879a;--t4:#9aabba;--surface:#f8fafc;
+  --shadow:0 8px 24px rgba(39,65,88,.08);
+}
+body{background:var(--bg);color:var(--t1);font-size:13px;line-height:1.58}
+.hdr{background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 14px rgba(39,65,88,.08)}
+.heatbar{height:3px;background:linear-gradient(90deg,#d38a16,#f0b64a,#087f9b,#d38a16);animation:none}
+.hdr-logo{background:#d88b18;color:#172b3d;min-width:138px}
+.hdr-title h1{color:#1a5366;font-size:18px}
+.hdr-title .sub{color:var(--t3)}
+.hdr-meta{border-right-color:var(--border)}.hm{border-left-color:var(--border)}.hm .lbl{color:var(--t3)}.hm .val{color:#1a5366}
+.hdr-tools{gap:8px}.iconbtn{background:#fff;border-color:var(--border);color:var(--t2)}
+.nav{background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(39,65,88,.06)}
+.nt{color:var(--t2);border-left-color:#e3eaf1;padding:11px 14px}.nt:hover{color:var(--t1);background:#f1f6fa}.nt.active{color:#1a5366;background:#e8f3f6;border-bottom-color:#1a9ab5}.nt.active::after{background:#1a9ab5;box-shadow:none}
+.commandbar{background:#f8fafc;border-bottom-color:var(--border);box-shadow:none;padding:10px 18px}.cmdsearch,.si,.sf,input.fi,select.fi,textarea.fi{background:#fff;border-color:#bccdda;color:var(--t1)}
+.cmdsearch::placeholder,.si::placeholder,input.fi::placeholder,textarea.fi::placeholder{color:#8295a5}
+.main{max-width:1920px;padding:22px 24px}.krow{gap:14px;margin-bottom:16px}.kc{background:#fff;border:1px solid var(--border);border-top:4px solid var(--amber);border-radius:10px;padding:16px;box-shadow:var(--shadow)}.kc:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(39,65,88,.13)}
+.kl{color:var(--t3);font-size:9px}.kv{font-size:30px}.ks{color:var(--t2)}
+.pnl,.twrap{background:#fff;border-color:var(--border);border-radius:10px;box-shadow:var(--shadow)}.pnl{margin-bottom:16px}.ph{background:#f8fafc;border-bottom-color:var(--border);padding:12px 16px;border-radius:10px 10px 0 0}.ph:hover{background:#eef5f8}.pt{color:#24475b}.ptgl{color:var(--t3)}.pb{padding:16px}
+.st{color:#1a5366}.sc{color:#087f9b;background:var(--cyD);border-color:rgba(8,127,155,.2)}
+thead th{background:#edf3f7;color:#526a7d;border-bottom-color:var(--border);padding:11px 12px}tfoot td{background:#edf3f7;color:#9b6208}tbody tr{border-bottom-color:#e5edf3}tbody tr:hover{background:#f2f8fa}td{padding:10px 12px}
+.btn{border-radius:7px;padding:9px 16px;min-height:36px;letter-spacing:.15px}.btn-p{background:#d88b18;color:#172b3d;box-shadow:0 4px 10px rgba(201,120,8,.15)}.btn-p:hover{background:#eca329}.btn-s{color:#087f9b;border-color:rgba(8,127,155,.35)}.btn-s:hover{background:var(--cyD)}.btn-g{color:#087f5b;border-color:rgba(8,127,91,.35)}.btn-g:hover{background:var(--gnD)}.btn-d{color:#5a7083;border-color:#c6d4df}.btn-d:hover{color:var(--t1);background:#eef4f8}
+.b,.chip{border-radius:999px;padding:3px 9px}.ib{border-right-width:4px;background:#f8fafc;border-radius:8px;padding:12px 16px}.gi{background:#fff;border-color:var(--border)}.gi.ck{background:var(--gnD)}.gi.fl{background:var(--rdD)}
+.ops-pulse{display:grid;grid-template-columns:1.4fr repeat(4,minmax(150px,1fr));gap:10px;margin:0 0 18px;padding:12px;background:#eaf1f6;border:1px solid #d2e0ea;border-radius:12px;box-shadow:var(--shadow)}
+.pulse-intro{display:flex;flex-direction:column;justify-content:center;padding:4px 10px;gap:2px}.pulse-intro strong{font-size:15px;color:#1a5366}.pulse-intro span:last-child{font-size:11px;color:var(--t3)}.pulse-kicker{font-family:var(--mono);font-size:9px;letter-spacing:1.4px;color:#087f9b;font-weight:700}
+.pulse-card{display:flex;align-items:center;gap:10px;text-align:right;background:#fff;border:1px solid var(--border);border-right:4px solid #087f9b;border-radius:9px;padding:10px 12px;color:var(--t1);cursor:pointer;transition:.15s}.pulse-card:hover{transform:translateY(-2px);box-shadow:0 7px 16px rgba(39,65,88,.12)}.pulse-card b{display:block;font:800 22px/1 var(--mono)}.pulse-card small{display:block;color:var(--t3);font-size:10px;margin-top:4px}.pulse-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;font:800 16px var(--mono);background:var(--cyD);color:var(--cyan)}.pulse-red{border-right-color:var(--red)}.pulse-red .pulse-icon{background:var(--rdD);color:var(--red)}.pulse-orange{border-right-color:var(--orange)}.pulse-orange .pulse-icon{background:rgba(184,91,18,.1);color:var(--orange)}.pulse-green{border-right-color:var(--green)}.pulse-green .pulse-icon{background:var(--gnD);color:var(--green)}
+body:not(.light){--bg:#0d1a29;--panel:#122335;--panel2:#192d40;--border:#2a455d;--line:#3b5970;--surface:#0b1724;--t1:#f3f7fb;--t2:#b9c8d6;--t3:#8fa5b7;--t4:#6f879b;--amber:#ffb84d;--amb2:#ffd166;--cyan:#5ee7f5;--green:#35d39a;--red:#ff6b6b;--orange:#ff9f43;--shadow:0 10px 28px rgba(0,0,0,.22)}
+body:not(.light) .hdr,body:not(.light) .nav{background:#0e1d2d}body:not(.light) .commandbar{background:#0b1826}body:not(.light) .hdr-title h1,body:not(.light) .hm .val{color:var(--amber)}body:not(.light) .ops-pulse{background:#102437;border-color:var(--border)}body:not(.light) .pulse-card{background:var(--panel)}body:not(.light) .ph,body:not(.light) thead th,body:not(.light) tfoot td{background:#0d1c2b;color:var(--t2)}body:not(.light) .pnl,body:not(.light) .twrap,body:not(.light) .kc{background:var(--panel)}body:not(.light) tbody tr:hover{background:rgba(94,231,245,.06)}
+@media(max-width:1000px){.ops-pulse{grid-template-columns:repeat(2,minmax(0,1fr))}.pulse-intro{grid-column:1/-1}}
+@media(max-width:700px){.main{padding:14px}.ops-pulse{grid-template-columns:1fr}.pulse-intro{grid-column:auto}.hdr-meta{display:none}.hdr-title h1{font-size:15px}.nt{padding:10px 11px}}
+
 </style>
 </head>
 <body>
@@ -472,6 +509,14 @@ body.light .btn-p:hover{background:#fbbf24}
     <button class="btn btn-d" onclick="window.print()">🖨 Print</button>
     <button class="btn btn-d" onclick="clearAllShipments()" style="border-color:var(--red);color:var(--red)">🗑 Clear All Shipments</button>
     <div style="margin-right:auto;font-family:var(--mono);font-size:10px;color:var(--t3)" id="lastUpdate">—</div>
+  </div>
+
+  <div class="ops-pulse" id="opsPulse" aria-label="Operational pulse">
+    <div class="pulse-intro"><span class="pulse-kicker">TODAY'S CONTROL PULSE</span><strong>Operational focus</strong><span>Derived from current shipment records</span></div>
+    <button class="pulse-card pulse-red" onclick="focusDashFilter('acid')"><span class="pulse-icon">!</span><span><b id="pulseAcid">—</b><small>ACID attention</small></span></button>
+    <button class="pulse-card pulse-orange" onclick="focusDashFilter('overdue')"><span class="pulse-icon">◷</span><span><b id="pulseOverdue">—</b><small>ETA overdue</small></span></button>
+    <button class="pulse-card pulse-cyan" onclick="sw('actions')"><span class="pulse-icon">→</span><span><b id="pulseActions">—</b><small>open actions</small></span></button>
+    <button class="pulse-card pulse-green" onclick="sw('docs')"><span class="pulse-icon">✓</span><span><b id="pulseDocs">—</b><small>document packs</small></span></button>
   </div>
 
   <!-- KPIs -->
@@ -1662,6 +1707,22 @@ function buildDashRow(s){
   </tr>`;
 }
 
+function focusDashFilter(kind){
+  sw('dashboard');
+  const search=$('dashSearch'), status=$('dashFilt2');
+  if(kind==='acid'){if(search)search.value='';if(status)status.value='acid-miss';}
+  else if(kind==='overdue'){if(search)search.value='';if(status)status.value='';}
+  refreshDash();
+  document.getElementById('dashTbl')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderOpsPulse(openShipments){
+  const acid=openShipments.filter(s=>s.acid!=='issued').length;
+  const overdue=openShipments.filter(s=>etaDays(s.eta)<0).length;
+  const actions=(DB.actions||[]).filter(a=>!a.done).length;
+  let incomplete=0;
+  openShipments.forEach(s=>{const d=DB.docs&&DB.docs[s.id];let ok=0;if(d)for(let i=0;i<7;i++)if(String(d[i*9+1]||'').includes('Approved'))ok++;if(ok<7)incomplete++;});
+  set('pulseAcid',acid);set('pulseOverdue',overdue);set('pulseActions',actions);set('pulseDocs',incomplete);
+}
 function refreshDash(){
   const body=$('dashBody');if(!body)return;
   const q=($('dashSearch')?.value||'').toLowerCase();
@@ -1671,6 +1732,7 @@ function refreshDash(){
   const missIds=[];const alerts=[];
   let html='';
   const openShipments=SHIPMENTS.filter(s=>!s.closed&&!s.archived);
+  renderOpsPulse(openShipments);
   openShipments.forEach(s=>{
     total++;sumVal+=s.value;
     if(s.acid==='issued')acidOk++;else{acidMiss++;missIds.push(s.id);}
@@ -2445,7 +2507,7 @@ function printTracker(){window.print();}
 
 /* ═══ ENTERPRISE v2026.08 SERVICES ═══ */
 function toggleTheme(){document.body.classList.toggle('light');localStorage.setItem('mks_theme',document.body.classList.contains('light')?'light':'dark');}
-function enterpriseInit(){if(localStorage.getItem('mks_theme')==='light')document.body.classList.add('light');if(!DB.audit)DB.audit=[];if(!DB.actions)DB.actions=[];generateActions(true);renderAudit();updateBackupHealth();}
+function enterpriseInit(){if(localStorage.getItem('mks_theme')!=='dark')document.body.classList.add('light');if(!DB.audit)DB.audit=[];if(!DB.actions)DB.actions=[];generateActions(true);renderAudit();updateBackupHealth();}
 function audit(action,module,record,details){if(!DB.audit)DB.audit=[];DB.audit.unshift({ts:new Date().toISOString(),user:'Ahmed Elghobashy · ID.11530',action,module,record,details:details||''});DB.audit=DB.audit.slice(0,2000);saveDB(true);}
 function renderAudit(){const b=$('auditBody');if(!b)return;const a=DB.audit||[];b.innerHTML=a.map(x=>`<tr class="audit-row"><td>${esc(new Date(x.ts).toLocaleString('en-GB'))}</td><td>${esc(x.user)}</td><td class="audit-${esc(x.action.toLowerCase())}">${esc(x.action)}</td><td>${esc(x.module)}</td><td>${esc(x.record)}</td><td>${esc(x.details)}</td></tr>`).join('')||'<tr><td colspan="6" class="empty-state">No operational changes recorded yet.</td></tr>';}
 function exportAuditCSV(){const h=['Timestamp','User','Action','Module','Record','Details'];const lines=[h.join(','),...(DB.audit||[]).map(x=>[x.ts,x.user,x.action,x.module,x.record,x.details].map(csvField).join(','))];const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/csv'}));a.download='ElMarakby_Audit_'+new Date().toISOString().slice(0,10)+'.csv';a.click();}
