@@ -1,5 +1,22 @@
 # Change Log
 
+## 2026-10-01 — Live preview and visual clarity refresh
+
+### Updated
+
+- Refined the color system for stronger readability and clearer operational states.
+- Improved dashboard spacing, KPI cards, navigation, form fields, buttons and table rows.
+- Preserved all current modules, event handlers, data structures and workflows.
+- Corrected light-theme backgrounds, borders, placeholders and text contrast after live preview validation.
+
+### Verified
+
+- Navigation to New Shipment and Shipment Tracker.
+- Shipment selection and 12-stage tracker rendering.
+- Dashboard shipment search and entity filtering.
+- Dark/light theme toggle.
+- HTML structure and JavaScript syntax.
+
 ## 2026-09-30 — Readiness and forensic audit pass
 
 ### Preserved
