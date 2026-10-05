@@ -1,5 +1,20 @@
 # Change Log
 
+## 2026-10-05 — Control Center and data operations expansion
+
+### Added
+
+- New **Control Center** tab for centralized operation and administration.
+- Controlled editor for existing shipment supplier, description, origin, ETA, value, entity, mode, priority, pipeline stage, ACID state, ACID number and remarks.
+- Data health check for duplicate IDs, missing suppliers, invalid values, inconsistent ACID records and invalid stages.
+- Centralized JSON backup/restore, CSV exports, shipment entry template download, module control board and UI preference reset.
+- Arabic operating guide at `docs/CONTROL_CENTER_GUIDE.md`.
+
+### Preserved
+
+- Existing shipment, supplier, ACID, gate, document, customs, GRN, cost, action and audit workflows.
+- Existing browser persistence, archive behavior and protected destructive-operation confirmations.
+
 ## 2026-10-02 — Clear Control Tower v2
 
 ### Added

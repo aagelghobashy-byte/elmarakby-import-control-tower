@@ -457,6 +457,13 @@ body:not(.light) .hdr,body:not(.light) .nav{background:#0e1d2d}body:not(.light) 
 @media(max-width:1000px){.ops-pulse{grid-template-columns:repeat(2,minmax(0,1fr))}.pulse-intro{grid-column:1/-1}}
 @media(max-width:700px){.main{padding:14px}.ops-pulse{grid-template-columns:1fr}.pulse-intro{grid-column:auto}.hdr-meta{display:none}.hdr-title h1{font-size:15px}.nt{padding:10px 11px}}
 
+
+/* ── Control Center ── */
+.control-hero{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 24px;margin-bottom:16px;background:linear-gradient(120deg,#e8f3f6,#f8fafc 58%,#fff6e5);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
+.control-kicker{font:700 9px var(--mono);letter-spacing:1.6px;color:var(--cyan)}.control-hero h2{margin:4px 0 3px;color:#1a5366;font-size:22px}.control-hero p{max-width:680px;color:var(--t2);font-size:12px}.control-hero-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.control-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.control-stat{padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow)}.control-stat span{display:block;color:var(--t3);font:700 9px var(--mono);letter-spacing:1px;text-transform:uppercase}.control-stat b{display:block;color:var(--amber);font:800 27px/1.2 var(--mono);margin:5px 0}.control-stat small{color:var(--t2)}.control-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,.8fr);gap:16px;align-items:start}.control-wide{grid-row:span 2}.control-form{grid-template-columns:repeat(3,minmax(160px,1fr))}.control-actions{display:flex;flex-wrap:wrap;gap:8px}.module-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.module-board button{min-height:76px;text-align:right;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:9px;color:var(--t1);cursor:pointer;transition:.15s}.module-board button:hover{border-color:var(--cyan);transform:translateY(-2px);box-shadow:var(--shadow)}.module-board b{display:block;font-size:12px;color:#1a5366}.module-board small{display:block;color:var(--t3);font-size:10px;margin-top:5px}.health-list{display:grid;gap:7px;margin-bottom:12px}.health-item{padding:9px 10px;border-radius:7px;font-size:11px}.health-item.good{background:var(--gnD);color:var(--green);border:1px solid rgba(8,127,91,.18)}.health-item.bad{background:var(--rdD);color:var(--red);border:1px solid rgba(196,61,75,.18)}body:not(.light) .control-hero{background:linear-gradient(120deg,#102b3a,#122335 60%,#3a2a16)}body:not(.light) .control-hero h2,body:not(.light) .module-board b{color:var(--amber)}body:not(.light) .module-board button{background:var(--surface)}
+@media(max-width:1000px){.control-grid{grid-template-columns:1fr}.control-wide{grid-row:auto}.control-stats{grid-template-columns:repeat(2,1fr)}.module-board{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.control-hero{display:block;padding:18px}.control-hero-actions{justify-content:flex-start;margin-top:14px}.control-stats{grid-template-columns:1fr 1fr}.control-form{grid-template-columns:1fr}.module-board{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
@@ -491,6 +498,7 @@ body:not(.light) .hdr,body:not(.light) .nav{background:#0e1d2d}body:not(.light) 
   <div class="nt" data-tab="costs" onclick="sw('costs')"><span class="ico">💰</span>Costs</div>
   <div class="nt" data-tab="actions" onclick="sw('actions')"><span class="ico">⚡</span>Action Center</div>
   <div class="nt" data-tab="audit" onclick="sw('audit')"><span class="ico">◫</span>Audit & Governance</div>
+  <div class="nt" data-tab="control" onclick="sw('control')"><span class="ico">⚙</span>Control Center</div>
   <div class="nt" data-tab="ref" onclick="sw('ref')"><span class="ico">📋</span>HS / Ports Ref</div>
 </nav>
 <div class="commandbar"><input id="globalSearch" class="cmdsearch" placeholder="⌕ Search PO, shipment, supplier, ACID, B/L or HS code..." onkeydown="if(event.key==='Enter')runGlobalSearch()"><button class="btn btn-s" onclick="runGlobalSearch()">Search</button><span class="syncpill" id="backupHealth">● DATA READY</span></div>
@@ -1417,6 +1425,53 @@ body:not(.light) .hdr,body:not(.light) .nav{background:#0e1d2d}body:not(.light) 
   <div class="twrap"><table><thead><tr><th>Timestamp</th><th>User</th><th>Action</th><th>Module</th><th>Record</th><th>Details</th></tr></thead><tbody id="auditBody"></tbody></table></div>
 </div>
 <!-- ═══ REFERENCE ═══ -->
+<div class="tab" id="tab-control">
+  <div class="sh"><div class="st">Control Center — مركز التحكم</div><span class="sc">Edit · Backup · Validate · Operate</span></div>
+  <div class="control-hero"><div><span class="control-kicker">OPERATIONS ADMINISTRATION</span><h2>Everything in one place</h2><p>Manage operational records, review data quality and move directly to every system module. Destructive actions remain protected by confirmation and audit logging.</p></div><div class="control-hero-actions"><button class="btn btn-p" onclick="exportFullBackup()">📦 Full Backup</button><button class="btn btn-s" onclick="triggerImport()">📥 Restore Backup</button><button class="btn btn-d" onclick="refreshAllModules()">↻ Refresh System</button></div></div>
+  <div class="control-stats">
+    <div class="control-stat"><span>Shipments</span><b id="ctlShipCount">—</b><small>active + archived records</small></div>
+    <div class="control-stat"><span>Suppliers</span><b id="ctlSupplierCount">—</b><small>supplier master data</small></div>
+    <div class="control-stat"><span>ACID log</span><b id="ctlAcidCount">—</b><small>registration entries</small></div>
+    <div class="control-stat"><span>Audit events</span><b id="ctlAuditCount">—</b><small>recorded actions</small></div>
+  </div>
+  <div class="control-grid">
+    <div class="pnl control-wide">
+      <div class="ph"><div class="pt"><span class="pnum">✎</span> Shipment Editor — تعديل بيانات الشحنة</div><span class="sc">Existing records only</span></div>
+      <div class="pb">
+        <div class="ib a"><div class="it">Controlled editing</div>Changes are saved to the existing browser database, added to Audit & Governance, and immediately reflected in Dashboard, Tracker, Gate, Documents, Customs and Costs. Shipment number is locked to protect references.</div>
+        <div class="fgrid control-form">
+          <div class="fg"><label class="fl">Select Shipment</label><select class="fi" id="ctlShip" onchange="loadControlShipment()"><option value="">— Select shipment —</option></select></div>
+          <div class="fg"><label class="fl">Supplier</label><input class="fi" id="ctlSupplier"></div>
+          <div class="fg"><label class="fl">Description</label><input class="fi" id="ctlDesc"></div>
+          <div class="fg"><label class="fl">Origin</label><input class="fi" id="ctlOrigin"></div>
+          <div class="fg"><label class="fl">ETA</label><input class="fi" id="ctlEta" placeholder="DD/MM/YYYY or —"></div>
+          <div class="fg"><label class="fl">Value EUR</label><input class="fi" id="ctlValue" type="number" min="0" step="0.01"></div>
+          <div class="fg"><label class="fl">Entity</label><select class="fi" id="ctlEntity"><option>MKS</option><option>MKM</option><option>UNI</option></select></div>
+          <div class="fg"><label class="fl">Mode</label><select class="fi" id="ctlMode"><option value="fcl">FCL</option><option value="lcl">LCL</option><option value="air">AIR</option></select></div>
+          <div class="fg"><label class="fl">Priority</label><select class="fi" id="ctlPrio"><option value="normal">Normal</option><option value="high">High</option><option value="critical">Critical</option></select></div>
+          <div class="fg"><label class="fl">Pipeline Stage</label><select class="fi" id="ctlStage"></select></div>
+          <div class="fg"><label class="fl">ACID Status</label><select class="fi" id="ctlAcid"><option value="issued">Issued</option><option value="pending">Pending</option><option value="missing">Missing</option></select></div>
+          <div class="fg"><label class="fl">ACID Number</label><input class="fi tm" id="ctlAcidNo"></div>
+          <div class="fg" style="grid-column:1/-1"><label class="fl">Operational Remarks</label><textarea class="fi" id="ctlRemarks" rows="3"></textarea></div>
+        </div>
+        <div class="brow"><button class="btn btn-p" onclick="saveControlShipment()">💾 Save Shipment Changes</button><button class="btn btn-s" onclick="openControlTracker()">🔄 Open Full Tracker</button><button class="btn btn-d" onclick="clearControlEditor()">↺ Clear Editor</button></div>
+        <div id="ctlEditMsg" class="fh ok" style="display:none"></div>
+      </div>
+    </div>
+    <div class="pnl">
+      <div class="ph"><div class="pt"><span class="pnum">✓</span> Data Health</div><span class="sc" id="ctlHealthBadge">Not checked</span></div>
+      <div class="pb"><div id="ctlHealth" class="health-list"><div class="empty-state">Run a health check before operational handover.</div></div><button class="btn btn-g" onclick="runDataHealthCheck()">🔍 Run Health Check</button></div>
+    </div>
+    <div class="pnl">
+      <div class="ph"><div class="pt"><span class="pnum">↗</span> Import / Export</div><span class="sc">Portable data tools</span></div>
+      <div class="pb"><div class="control-actions"><button class="btn btn-p" onclick="exportFullBackup()">Download JSON Backup</button><button class="btn btn-s" onclick="triggerImport()">Restore JSON Backup</button><button class="btn btn-d" onclick="exportCSV()">Export Shipments CSV</button><button class="btn btn-d" onclick="exportSuppCSV()">Export Suppliers CSV</button><button class="btn btn-d" onclick="exportAcidCSV()">Export ACID CSV</button><button class="btn btn-d" onclick="exportAuditCSV()">Export Audit CSV</button><button class="btn btn-d" onclick="downloadDataTemplate()">Download Entry Template</button></div></div>
+    </div>
+  </div>
+  <div class="pnl"><div class="ph"><div class="pt"><span class="pnum">▦</span> Module Control Board</div><span class="sc">Direct access to every workflow</span></div><div class="pb module-board">
+    <button onclick="sw('dashboard')"><b>📊 Dashboard</b><small>KPI, alerts, shipment list</small></button><button onclick="sw('new-shipment')"><b>➕ New Shipment</b><small>Create and register</small></button><button onclick="sw('acid')"><b>🔑 ACID / NAFEZA</b><small>Register and log ACIDs</small></button><button onclick="sw('gate')"><b>✅ Gate Check</b><small>12 mandatory checks</small></button><button onclick="sw('docs')"><b>📄 Documents</b><small>Version and approval control</small></button><button onclick="sw('customs')"><b>🛃 Customs</b><small>Clearance and GRN</small></button><button onclick="sw('suppliers')"><b>🏭 Suppliers</b><small>Master data and KYC</small></button><button onclick="sw('costs')"><b>💰 Costs</b><small>Cost and duty control</small></button><button onclick="sw('actions')"><b>⚡ Action Center</b><small>Open tasks and owners</small></button><button onclick="sw('audit')"><b>◫ Audit</b><small>Governance history</small></button><button onclick="sw('ref')"><b>📋 Reference</b><small>Data management and HS</small></button><button onclick="resetUiPreferences()"><b>◌ Reset UI preference</b><small>Safe: does not delete data</small></button>
+  </div></div>
+</div>
+<!-- ═══ REFERENCE ═══ -->
 <div class="tab" id="tab-ref">
   <div class="sh"><div class="st">HS Codes & Ports Quick Reference</div><span class="sc">Verified Data — Al-Marakby Steel Group</span></div>
 
@@ -1584,7 +1639,7 @@ tick();setInterval(tick,30000);
 const toast=(msg,t='i',d=4000)=>{const c=$('tc');const el=document.createElement('div');el.className='toast '+t;el.textContent=msg;c.appendChild(el);setTimeout(()=>{el.style.animation='tout .25s forwards';setTimeout(()=>el.remove(),280);},d);};
 
 /* ── Tabs ── */
-const sw=id=>{$$('.tab').forEach(p=>p.classList.remove('active'));$$('.nt').forEach(t=>t.classList.remove('active'));const p=$('tab-'+id),t=document.querySelector('.nt[data-tab="'+id+'"]');if(p)p.classList.add('active');if(t)t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='dashboard')refreshDash();if(id==='tracker')buildTrackerOptions();if(id==='actions')renderActions();if(id==='audit')renderAudit();};
+const sw=id=>{$$('.tab').forEach(p=>p.classList.remove('active'));$$('.nt').forEach(t=>t.classList.remove('active'));const p=$('tab-'+id),t=document.querySelector('.nt[data-tab="'+id+'"]');if(p)p.classList.add('active');if(t)t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});if(id==='dashboard')refreshDash();if(id==='tracker')buildTrackerOptions();if(id==='actions')renderActions();if(id==='audit')renderAudit();if(id==='control')renderControlCenter();};
 
 /* ── Panel toggle ── */
 const tp=h=>{const b=h.nextElementSibling;if(!b)return;h.classList.toggle('col');b.classList.toggle('hid');};
@@ -1715,6 +1770,36 @@ function focusDashFilter(kind){
   refreshDash();
   document.getElementById('dashTbl')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
+function renderControlCenter(){
+  if(!$('tab-control')||!DB)return;
+  const all=SHIPMENTS||DB.shipments||[];
+  set('ctlShipCount',all.length);set('ctlSupplierCount',(DB.suppliers||[]).length);set('ctlAcidCount',(DB.acidLog||[]).length);set('ctlAuditCount',(DB.audit||[]).length);
+  const sel=$('ctlShip');if(sel){const cur=sel.value;sel.innerHTML='<option value="">— Select shipment —</option>'+all.filter(s=>!s.archived).map(s=>`<option value="${esc(s.id)}">${esc(s.id)} — ${esc(s.supplier||'No supplier')}</option>`).join('');if(cur&&all.some(s=>s.id===cur))sel.value=cur;}
+  const stage=$('ctlStage');if(stage&&!stage.options.length)stage.innerHTML=STAGE_LABELS.slice(1).map((x,i)=>`<option value="${i+1}">${i+1} — ${esc(x)}</option>`).join('');
+}
+function loadControlShipment(){
+  const id=$('ctlShip')?.value,s=(SHIPMENTS||[]).find(x=>x.id===id);if(!s){clearControlEditor();return;}
+  const put=(id,v)=>{const e=$(id);if(e)e.value=v==null?'':v;};
+  put('ctlSupplier',s.supplier);put('ctlDesc',s.desc);put('ctlOrigin',s.origin);put('ctlEta',s.eta);put('ctlValue',s.value);put('ctlEntity',s.entity);put('ctlMode',s.mode);put('ctlPrio',s.prio);put('ctlStage',s.stage||1);put('ctlAcid',s.acid||'missing');put('ctlAcidNo',s.acidNo||'');put('ctlRemarks',s.remarks||'');
+  const msg=$('ctlEditMsg');if(msg){msg.style.display='block';msg.textContent='Loaded '+s.id+' — review fields then save changes.';}
+}
+function clearControlEditor(){['ctlSupplier','ctlDesc','ctlOrigin','ctlEta','ctlValue','ctlAcidNo','ctlRemarks'].forEach(id=>{const e=$(id);if(e)e.value='';});const m=$('ctlEditMsg');if(m)m.style.display='none';}
+function saveControlShipment(){
+  const id=$('ctlShip')?.value,s=(SHIPMENTS||[]).find(x=>x.id===id);if(!s){toast('Select a shipment first','w');return;}
+  const val=parseFloat($('ctlValue')?.value);if(!Number.isFinite(val)||val<0){toast('Value EUR must be a valid positive number','w');return;}
+  const old={supplier:s.supplier,desc:s.desc,origin:s.origin,eta:s.eta,value:s.value,entity:s.entity,mode:s.mode,prio:s.prio,stage:s.stage,acid:s.acid,acidNo:s.acidNo,remarks:s.remarks};
+  s.supplier=$('ctlSupplier').value.trim();s.desc=$('ctlDesc').value.trim();s.origin=$('ctlOrigin').value.trim();s.eta=$('ctlEta').value.trim()||'—';s.value=val;s.entity=$('ctlEntity').value;s.mode=$('ctlMode').value;s.prio=$('ctlPrio').value;s.stage=parseInt($('ctlStage').value,10)||1;s.acid=$('ctlAcid').value;s.acidNo=$('ctlAcidNo').value.trim();s.remarks=$('ctlRemarks').value.trim();
+  audit('UPDATE','Shipment',s.id,'Control Center editor: '+JSON.stringify({before:old,after:{supplier:s.supplier,desc:s.desc,origin:s.origin,eta:s.eta,value:s.value,entity:s.entity,mode:s.mode,prio:s.prio,stage:s.stage,acid:s.acid,acidNo:s.acidNo,remarks:s.remarks}}));saveDB();refreshDash();renderControlCenter();$('ctlShip').value=s.id;loadControlShipment();toast('✓ Shipment '+s.id+' updated','ok');
+}
+function openControlTracker(){const id=$('ctlShip')?.value;if(!id){toast('Select a shipment first','w');return;}openTracker(id);}
+function runDataHealthCheck(){
+  const issues=[],all=SHIPMENTS||[];const ids=new Set();
+  all.forEach(s=>{if(!s.id)issues.push('Shipment with empty ID');if(ids.has(s.id))issues.push('Duplicate shipment ID: '+s.id);ids.add(s.id);if(!s.supplier)issues.push(s.id+': supplier is empty');if(!Number.isFinite(Number(s.value)))issues.push(s.id+': invalid value');if(s.acid==='issued'&&!s.acidNo)issues.push(s.id+': ACID issued but number is empty');if(!STAGE_LABELS[s.stage])issues.push(s.id+': invalid pipeline stage');});
+  const badge=$('ctlHealthBadge'),box=$('ctlHealth');if(!box)return;badge.textContent=issues.length?issues.length+' issue(s)':'✓ HEALTHY';badge.style.color=issues.length?'var(--red)':'var(--green)';box.innerHTML=issues.length?issues.map(x=>`<div class="health-item bad">⚠ ${esc(x)}</div>`).join(''):'<div class="health-item good">✓ No blocking data integrity issues found in shipment records.</div><div class="health-item good">✓ Duplicate IDs: 0</div><div class="health-item good">✓ ACID issued records have numbers</div>';audit('CHECK','Control Center','DATA','Health check: '+(issues.length?issues.length+' issue(s)':'healthy'));saveDB(true);toast(issues.length?'Health check found issues':'✓ Data health check passed',issues.length?'w':'ok');
+}
+function refreshAllModules(){renderGate();renderSuppliers();renderAcidLog();rebuildSupplierQuickSelect();generateActions(true);renderAudit();refreshDash();renderControlCenter();updateBackupHealth();toast('↻ All modules refreshed from current database','i');}
+function downloadDataTemplate(){const h=['Shipment ID','Entity','Supplier','Description','Origin','Mode (fcl/lcl/air)','Priority','Value EUR','ACID Status','ACID Number','ETA','Pipeline Stage (1-6)','Remarks'];const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h.map(csvField).join(',')+'\n'],{type:'text/csv'}));a.download='ElMarakby_Shipment_Entry_Template.csv';a.click();toast('Entry template downloaded','ok');}
+function resetUiPreferences(){if(!confirm('Reset saved visual preferences only? Operational data will not be changed.'))return;localStorage.removeItem('mks_theme');location.reload();}
 function renderOpsPulse(openShipments){
   const acid=openShipments.filter(s=>s.acid!=='issued').length;
   const overdue=openShipments.filter(s=>etaDays(s.eta)<0).length;
@@ -2535,6 +2620,7 @@ async function initApp(){
   $('emailMov')?.addEventListener('click',e=>{if(e.target===$('emailMov'))closeEmail();});
   /* initial render */
   refreshDash();
+  renderControlCenter();
   set('lastUpdate','Data loaded — '+new Date().toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit'}));
   console.log('✅ Al-Marakby Import Control Tower v2026.08 Enterprise — Loaded, data persistence active');
 }

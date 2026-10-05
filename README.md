@@ -4,7 +4,7 @@ Static single-page operations control tower for import shipments, ACID/NAFEZA tr
 
 ## Current release status
 
-This release is **UAT-ready as a controlled single-user browser tool** and is **not yet production-ready as a shared system of record**. The current runtime is intentionally preserved: it uses the existing single-page UI and browser-local persistence, with a Manus storage adapter when available and a `localStorage` fallback elsewhere.
+This release is **UAT-ready as a controlled single-user browser tool** and is **not yet production-ready as a shared system of record**. It now includes a centralized Control Center for controlled shipment editing, health checks, portable backup/restore, CSV exports, entry templates, module shortcuts and preference management. The runtime still uses browser-local persistence, with a Manus storage adapter when available and a `localStorage` fallback elsewhere.
 
 The current release does not provide server-side authentication, RBAC, database persistence, immutable evidence storage, server-enforced gates, or verified live NAFEZA/CargoX/customs integrations. Do not use it as the sole authoritative source for real regulatory, financial or shipment decisions until those controls are implemented and accepted.
 
@@ -17,6 +17,7 @@ https://aagelghobashy-byte.github.io/elmarakby-import-control-tower/
 - [Forensic audit and implementation map](docs/FORENSIC_AUDIT.md)
 - [Go-live readiness checklist](docs/GO_LIVE_READINESS.md)
 - [Operator user guide](docs/USER_GUIDE.md)
+- [Control Center operating guide](docs/CONTROL_CENTER_GUIDE.md)
 - [Change log](CHANGELOG.md)
 
 ## Run locally
