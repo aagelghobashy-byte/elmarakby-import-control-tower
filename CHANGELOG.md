@@ -1,5 +1,19 @@
 # Change Log
 
+## 2026-10-05 — Visual clarity and presentation polish
+
+### Improved
+
+- Unified the visual language around a clear steel operations palette: navy, teal, amber and controlled status colors.
+- Strengthened contrast for headers, navigation, KPI cards, tables, forms, alerts and Control Center surfaces.
+- Added focused input states, zebra rows, clearer table headers, stronger section hierarchy and more legible action buttons.
+- Refined responsive behavior for tablet and mobile widths.
+- Corrected dark-theme surfaces so cards, notices and alerts remain readable without bright white blocks.
+
+### Preserved
+
+- All data, JavaScript workflows, navigation, storage behavior and existing controls.
+
 ## 2026-10-05 — Control Center and data operations expansion
 
 ### Added
