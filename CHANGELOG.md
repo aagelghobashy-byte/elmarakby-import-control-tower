@@ -1,5 +1,18 @@
 # Change Log
 
+## 2026-10-05 — Color contrast review
+
+### Improved
+
+- Increased contrast for secondary text, small labels, table headings and form placeholders.
+- Refined status colors for ACID, ETA, action and document states so they remain clear on light backgrounds.
+- Strengthened secondary, success, warning and neutral button colors.
+- Preserved luminous but readable accent colors in dark mode.
+
+### Preserved
+
+- Existing data, workflows, controls, storage behavior and navigation.
+
 ## 2026-10-05 — Visual clarity and presentation polish
 
 ### Improved

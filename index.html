@@ -485,6 +485,17 @@ body:not(.light){background:radial-gradient(circle at 50% -20%,#17364b 0,#091523
 @media(max-width:900px){.main{padding:18px}.hdr{min-height:58px}.hdr-title h1{font-size:16px}.control-grid{grid-template-columns:1fr}.control-wide{grid-row:auto}.control-form{grid-template-columns:repeat(2,minmax(150px,1fr))}}
 @media(max-width:600px){.main{padding:12px}.hdr-title h1{font-size:14px}.nav{position:sticky;top:0;z-index:440}.commandbar{padding:8px 12px}.krow,.control-stats{grid-template-columns:1fr}.control-hero{padding:18px}.control-form{grid-template-columns:1fr}.module-board{grid-template-columns:repeat(2,1fr)}.module-board button{min-height:68px;padding:10px}.brow{gap:7px}.brow .btn{width:100%}.st{font-size:15px}}
 
+
+/* ── Contrast review: clearer operational reading ── */
+:root{--t1:#153244;--t2:#3f5c6d;--t3:#5c7482;--t4:#708793;--amber:#9a5b00;--cyan:#066b84;--green:#086b4d;--red:#b52f42;--orange:#9c4d0d;--border:#c3d4de;--line:#b4c7d2}
+body{color:#153244}
+.hdr-title .sub,.hm .lbl{color:#9bb6c3}.nt{color:#3f5c6d}.nt:hover{color:#153244}.nt.active{color:#075970}.cmdsearch::placeholder,.si::placeholder,input.fi::placeholder,textarea.fi::placeholder{color:#667f8d}
+.kl{color:#4b6675}.ks{color:#405e6e}.pt{color:#173f54}.ptgl{color:#536d7c}.st{color:#075970}.sc{color:#066b84}
+thead th{color:#294f62}.tf,.tm{color:#234b60}.btn-s{color:#075e76;background:#e5f4f6;border-color:#78b9c6}.btn-g{color:#086344;background:#e8f7f0;border-color:#7fc3a7}.btn-d{color:#405e6d;border-color:#b4c8d3}.btn-p{color:#152f3e;background:linear-gradient(135deg,#e6a238,#ca7808)}
+.pulse-intro span:last-child,.pulse-card small{color:#5b7482}.pulse-intro strong{color:#14516a}.control-hero p,.control-stat small,.module-board small{color:#405e6e}.control-stat b{color:#925500}.module-board b{color:#14516a}.health-item.good{color:#086344}.health-item.bad{color:#a92d40}.ib .it{color:#194d62}
+body:not(.light){--t1:#f3f7fb;--t2:#c5d3dd;--t3:#a7bac7;--t4:#8ca4b2;--amber:#ffd166;--cyan:#72e6f0;--green:#58d6a6;--red:#ff7b86;--orange:#ffae62}
+body:not(.light) .kl,body:not(.light) .ks,body:not(.light) .ptgl,body:not(.light) .pulse-card small,body:not(.light) .module-board small{color:var(--t3)}body:not(.light) .nt{color:#c5d3dd}body:not(.light) .nt.active{color:#86edf3}body:not(.light) thead th{color:#d1e0e8}body:not(.light) .btn-s{color:#8aedf4;background:#123b4b;border-color:#3c8591}body:not(.light) .btn-g{color:#79e5b7;background:#123c34;border-color:#3b896d}body:not(.light) .btn-d{color:#d0dde5;border-color:#496579}body:not(.light) .control-hero p,body:not(.light) .control-stat small{color:var(--t2)}body:not(.light) .module-board b,body:not(.light) .ib .it{color:#ffd166}
+
 </style>
 </head>
 <body>
