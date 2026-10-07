@@ -1,5 +1,18 @@
 # Change Log
 
+## 2026-10-08 — Mixed-direction presentation pass
+
+### Improved
+
+- Kept the Arabic interface shell, navigation and labels right-to-left.
+- Set shipment tables, SLA tables, identifiers, dates, values, search fields and operational form values to left-to-right reading order.
+- Improved tracker stage-detail alignment while keeping the Arabic timeline structure intact.
+- Added mobile table overflow behavior so wide operational data remains readable without collapsing columns.
+
+### Preserved
+
+- Existing records, workflows, navigation, browser persistence and all data operations.
+
 ## 2026-10-05 — Color contrast review
 
 ### Improved

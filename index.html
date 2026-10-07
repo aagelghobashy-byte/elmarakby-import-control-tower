@@ -496,6 +496,30 @@ thead th{color:#294f62}.tf,.tm{color:#234b60}.btn-s{color:#075e76;background:#e5
 body:not(.light){--t1:#f3f7fb;--t2:#c5d3dd;--t3:#a7bac7;--t4:#8ca4b2;--amber:#ffd166;--cyan:#72e6f0;--green:#58d6a6;--red:#ff7b86;--orange:#ffae62}
 body:not(.light) .kl,body:not(.light) .ks,body:not(.light) .ptgl,body:not(.light) .pulse-card small,body:not(.light) .module-board small{color:var(--t3)}body:not(.light) .nt{color:#c5d3dd}body:not(.light) .nt.active{color:#86edf3}body:not(.light) thead th{color:#d1e0e8}body:not(.light) .btn-s{color:#8aedf4;background:#123b4b;border-color:#3c8591}body:not(.light) .btn-g{color:#79e5b7;background:#123c34;border-color:#3b896d}body:not(.light) .btn-d{color:#d0dde5;border-color:#496579}body:not(.light) .control-hero p,body:not(.light) .control-stat small{color:var(--t2)}body:not(.light) .module-board b,body:not(.light) .ib .it{color:#ffd166}
 
+
+/* ── Final direction pass: RTL shell + LTR operational data ── */
+html[dir="rtl"] body{direction:rtl;text-align:right}
+/* Shipment and SLA data are read in operational left-to-right order. */
+.twrap{direction:ltr;unicode-bidi:plaintext}
+.twrap>table{direction:ltr;unicode-bidi:plaintext}
+.twrap th,.twrap td{direction:ltr;text-align:left;unicode-bidi:plaintext}
+.twrap th:last-child,.twrap td:last-child{text-align:center}
+#dashTbl th:first-child,#dashTbl td:first-child,#dashTbl th:nth-child(8),#dashTbl td:nth-child(8),#dashTbl th:nth-child(11),#dashTbl td:nth-child(11),#dashTbl th:nth-child(12),#dashTbl td:nth-child(12){font-family:var(--mono);direction:ltr;text-align:left}
+#dashTbl td:first-child,#dashTbl td:nth-child(11){font-weight:700}
+/* Search, filters and record fields should not reverse identifiers, dates or values. */
+.cmdsearch,.si,.sf,input.fi,select.fi,textarea.fi{direction:ltr;text-align:left;unicode-bidi:plaintext}
+input[type="date"],input[type="number"],input[type="email"]{direction:ltr;text-align:left}
+input.fi.auto{direction:ltr;text-align:left}
+/* Keep Arabic labels and section chrome aligned to the interface direction. */
+.fg,.fl,.ph,.sh,.control-hero,.control-stat,.module-board button,.health-item{direction:rtl}
+/* Tracker keeps its timeline on the right, while stage details read naturally LTR. */
+.tl{direction:rtl}
+.tlc{direction:ltr;text-align:left;unicode-bidi:plaintext}
+.tlt,.tlm{direction:ltr;text-align:left}
+/* Mixed Arabic/English titles should keep words from visually reordering. */
+.hdr-title h1,.hdr-title .sub,.pt,.st,.control-hero h2{unicode-bidi:plaintext}
+@media(max-width:700px){.twrap{max-width:100%;-webkit-overflow-scrolling:touch}.twrap>table{min-width:860px}.tlc{padding-left:12px;padding-right:12px}}
+
 </style>
 </head>
 <body>
