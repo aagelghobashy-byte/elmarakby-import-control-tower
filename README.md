@@ -12,8 +12,13 @@ The current release does not provide server-side authentication, RBAC, database 
 
 https://aagelghobashy-byte.github.io/elmarakby-import-control-tower/
 
+Shareable release notes:
+
+https://aagelghobashy-byte.github.io/elmarakby-import-control-tower/release-notes.html
+
 ## Documentation
 
+- [Shareable release notes](release-notes.html)
 - [Forensic audit and implementation map](docs/FORENSIC_AUDIT.md)
 - [Go-live readiness checklist](docs/GO_LIVE_READINESS.md)
 - [Operator user guide](docs/USER_GUIDE.md)
